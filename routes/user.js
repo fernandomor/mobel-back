@@ -11,6 +11,11 @@ router.get('/:category', async (req, res, next) => {
     res.json(response)
 });
 
+router.get("/list/products", async (req,res,next)=>{
+    const prod = await Product.find({}).sort({'date': -1}).limit(4)
+    res.json(prod)
+})
+
 
 
 module.exports = router;

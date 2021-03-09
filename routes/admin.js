@@ -93,7 +93,7 @@ console.log("Error en kits",err)
 //Editar Kit
 router.get('/kit/edit/:id', async (req, res, next) => {
     const kitId = req.params.id // la forma de acceder al id puede causar problemas , revisar
-    const kitMatch = await Product.findById({_id:kitId})
+    const kitMatch = await Kits.findById({_id:kitId})
     res.json(kitMatch)
 });
 
