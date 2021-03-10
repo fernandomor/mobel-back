@@ -80,10 +80,10 @@ try{
     const newKit = await Kits.create({
         kitName,
         kitImage , 
-        kitProducts,
         kitPrice
     })
-    console.log(newKit)
+    const pushProd = await Kits.findByIdAndUpdate(newKit._id,{$push: {kitProducts}})
+    console.log("este es el nuevo",pushProd, "este es el aantes del push", newKit )
     res.status(200)
 }catch(err){
 console.log("Error en kits",err)
@@ -93,7 +93,7 @@ console.log("Error en kits",err)
 //Editar Kit
 router.get('/kit/edit/:id', async (req, res, next) => {
     const kitId = req.params.id // la forma de acceder al id puede causar problemas , revisar
-    const kitMatch = await Kits.findById({_id:kitId})
+    const kitMatch = await Kits.findById({_id:kitId}).populate("kitProducts")
     res.json(kitMatch)
 });
 

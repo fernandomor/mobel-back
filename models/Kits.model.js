@@ -4,7 +4,7 @@ const kitsSchema = new Schema(
   {
     kitName: String,
     kitImage: String,
-    kitProducts: [{ type: Schema.Types.ObjectId, ref: 'product' }],
+    kitProducts: [{ type: Schema.Types.ObjectId, ref: 'Product' }],
     kitPrice:Number
   },
   {
