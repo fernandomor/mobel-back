@@ -19,7 +19,7 @@ require('./config/db.config');
 app.use(
   cors({
     credentials: true,
-    origin: ['https://mobel-helpy.netlify.app/'] // <== this will be the URL of our React app (it will be running on port 3000)
+    origin: ['https://mobel-helpy.netlify.app'] // <== this will be the URL of our React app (it will be running on port 3000)
   })
 );
 

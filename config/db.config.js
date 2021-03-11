@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const MONGODB_URI = process.env.MONGODB_URI ||"mongodb:mongodb+srv://mobel:<mobelhack>@cluster0.zscvo.mongodb.net/mobel"
+const MONGODB_URI = process.env.MONGODB_URI ||"mongodb:mongodb+srv://mobel:helpymobel@cluster0.zscvo.mongodb.net/mobel"
  
 mongoose
   .connect(MONGODB_URI, {
