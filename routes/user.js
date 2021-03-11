@@ -1,6 +1,7 @@
 const express = require('express');
 const Product = require('../models/Product.model');
 const Order = require('../models/Order.model');
+const Kits = require('../models/Kits.model')
 const router  = express.Router();
 
 //aqui poner el auth
@@ -31,6 +32,19 @@ router.post("/create/order", async (req,res,next)=>{
 
     console.log("la nueva",ordCreated)
     
+})
+
+router.get("/get/:mail" , async (req,res,next)=>{
+    const {mail} = req.params
+    const orders = await Order.find({emailUser:mail})
+    res.json(orders)
+})
+
+router.get("/result/:kit" , async (req,res,next)=>{
+    const {kit} = req.params
+    const elKit = await Kits.find({kitName:kit})
+    console.log(elKit)
+    res.json(elKit)
 })
 
 
