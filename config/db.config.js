@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
 
-const DB_NAME = 'mobel';
+const MONGODB_URI = process.env.MONGODB_URI ||"mongodb:mongodb+srv://mobel:<mobelhack>@cluster0.zscvo.mongodb.net/mobel"
  
 mongoose
-  .connect(`mongodb://localhost/${DB_NAME}`, {
+  .connect(MONGODB_URI, {
     useCreateIndex: true,
     useNewUrlParser: true,
     useUnifiedTopology: true
@@ -12,3 +12,4 @@ mongoose
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   )
   .catch(err => console.error('Error connecting to mongo', err));
+
