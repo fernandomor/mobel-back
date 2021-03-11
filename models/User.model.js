@@ -19,7 +19,7 @@ const userSchema = new Schema(
       type: String,
       default: 'user'
   },
-    passwordHash : String
+    password : String
   },
   {
     timestamps: true,

@@ -56,4 +56,7 @@ app.use('/', index);
 app.use('/', admin);
 app.use('/', user);
 
+app.use('/api/usuarios', require('./routes/usuarios'))
+app.use('/api/auth', require('./routes/auth'))
+
 module.exports = app;

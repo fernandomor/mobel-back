@@ -3,7 +3,7 @@ const { Schema, model } = require('mongoose');
 const orderSchema = new Schema(
   {
     selectedProducts:[{ type: Schema.Types.ObjectId, ref: 'product' }],
-    orderNumber: Number,
+    orderNumber: String,
     emailUser:String,
     total: Number
   },
