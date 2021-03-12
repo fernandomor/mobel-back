@@ -51,6 +51,8 @@ router.get("/result/:kit" , async (req,res,next)=>{
 
 router.post("/user/sendmail", async (req,res,next)=>{
     const {emailAddress} = req.body
+    const subject = "Apoyo para Home Office"
+    const message = "Tener un espacio de trabajo y las herramientas, es indispensable para realizar un trabajo bien hecho, es por eso que estan pidiendo tu apoyo para comprar este espacio de trabajo https://mobel-helpy.netlify.app/quizz"
 
     let transporter = nodemailer.createTransport({
         service: 'Gmail',
@@ -60,11 +62,11 @@ router.post("/user/sendmail", async (req,res,next)=>{
         }
       });
       transporter.sendMail({
-        from: '" Helpy - creando y mejorando tu espacio " <info@helpy.mx>',
+        from: '" Mobel by helpy " <info@helpy.mx>',
         to: emailAddress, 
-        subject: "Apoyo para Home Office", 
-        text: "Tener un espacio de trtabajo y las herramientas, es indispensable para realizar un trabajo bien hecho, es por eso que estan pidiendo tu apoyo para comprar este espacio de trabajo",
-        html: `<b>${text}</b>`
+        subject: subject, 
+        text: message,
+        html: `<b>${message}</b>`
       })
       .then(info => console.log(info))
       .catch(error => console.log(error))
