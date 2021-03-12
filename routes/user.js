@@ -49,7 +49,7 @@ router.get("/result/:kit" , async (req,res,next)=>{
     res.json(elKit)
 })
 
-router.post("/sendmail", async (req,res,next)=>{
+router.post("/user/sendmail", async (req,res,next)=>{
     const {emailAddress} = req.body
 
     let transporter = nodemailer.createTransport({
